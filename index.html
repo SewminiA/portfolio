@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sewmini Athapaththu - Portfolio</title>
+
+  <style>
+    /* Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    /* Reset & base */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+      scroll-behavior: smooth;
+    }
+
+    /* Header */
+    header {
+      background-color: #004d40;
+      color: white;
+      padding: 40px 20px 60px;
+      text-align: center;
+      position: relative;
+      z-index: 1000;
+    }
+
+    header h1 {
+      margin-bottom: 10px;
+      font-weight: 600;
+      font-size: 2.8rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      margin-top: 0;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.4;
+    }
+
+    header .btn {
+      display: inline-block;
+      background-color: #00695c;
+      color: white;
+      padding: 12px 28px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 25px;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    header .btn:hover,
+    header .btn:focus {
+      background-color: #004d40;
+    }
+
+    /* Navigation */
+    nav {
+      background-color: #00695c;
+      padding: 12px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      flex-wrap: wrap;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 8px 12px;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      background-color: #004d40;
+    }
+
+    /* Section styling */
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h2 {
+      color: #00695c;
+      border-bottom: 3px solid #00695c;
+      padding-bottom: 8px;
+      font-weight: 600;
+      font-size: 2rem;
+      margin-bottom: 30px;
+    }
+
+    p, li {
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+
+    ul {
+      padding-left: 20px;
+      max-width: 600px;
+    }
+
+    /* Profile Picture */
+    .profile-pic-container {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .profile-pic {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #00695c;
+      box-shadow: 0 4px 8px rgba(0, 77, 64, 0.3);
+    }
+
+    /* Skills & Soft Skills */
+    .skills, .soft-skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      max-width: 700px;
+    }
+
+    .skill-chip {
+      background-color: #e0f2f1;
+      padding: 10px 16px;
+      border-radius: 25px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #004d40;
+      cursor: default;
+      transition: transform 0.2s ease;
+      user-select: none;
+    }
+
+    .skill-chip:hover {
+      transform: scale(1.1);
+      box-shadow: 0 4px 8px rgba(0,77,64,0.3);
+    }
+
+    /* Projects */
+    .project {
+      background-color: white;
+      padding: 24px 30px;
+      margin-bottom: 30px;
+      border-radius: 10px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .project:hover {
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+
+    .project h3 {
+      margin-top: 0;
+      font-weight: 700;
+      color: #004d40;
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+    }
+
+    .project p {
+      margin: 6px 0;
+      color: #333;
+    }
+
+    .project-image {
+      width: 100%;
+      max-height: 250px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    }
+
+    /* Volunteering */
+    #volunteering ul {
+      max-width: 600px;
+      list-style-type: disc;
+      padding-left: 20px;
+    }
+
+    /* Contact */
+    #contact a {
+      color: #00695c;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    #contact a:hover,
+    #contact a:focus {
+      color: #004d40;
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #004d40;
+      color: white;
+      text-align: center;
+      padding: 18px 20px;
+      font-size: 0.9rem;
+      user-select: none;
+    }
+
+    /* Back to top button */
+    #backToTop {
+      position: fixed;
+      bottom: 40px;
+      right: 40px;
+      background-color: #00695c;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      font-size: 24px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.3s ease;
+      z-index: 1000;
+    }
+
+    #backToTop:hover {
+      background-color: #004d40;
+    }
+
+    /* Responsive */
+    @media (max-width: 700px) {
+      nav {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      header h1 {
+        font-size: 2rem;
+      }
+
+      header p {
+        font-size: 1rem;
+      }
+
+      .skills, .soft-skills {
+        justify-content: center;
+      }
+
+      .project {
+        padding: 18px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Sewmini Athapaththu</h1>
+  <p>Driven Computer Science Undergraduate | Passion for Innovative Software Solutions</p>
+  <a class="btn" href="SEWMINI-ATHAPATHTHU-FlowCV-Resume-20250715.pdf" target="_blank" rel="noopener noreferrer">📄 Download Resume</a>
+</header>
+
+<nav>
+  <a href="#about">About</a>
+  <a href="#skills">Technical Skills</a>
+  <a href="#projects">Projects</a>
+  <a href="#volunteering">Volunteering</a>
+  <a href="#soft-skills">Soft Skills</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<section id="about" class="fade-in">
+  <h2>About Me</h2>
+
+  <!-- Profile Picture Added -->
+  <div class="profile-pic-container">
+    <img src="images/WhatsApp Image 2025-04-01 at 16.41.07_af9b2f03.jpg" alt="Sewmini Athapaththu" class="profile-pic" />
+  </div>
+
+  <p>Driven and adaptable individual with a passion for solving problems and creating impactful software solutions.
+     Known for quickly picking up new technologies and contributing effectively in team environments.
+     I enjoy working on innovative projects, continuously improving my skills, and making a positive difference through technology.</p>
+  <p><strong>Education:</strong></p>
+  <ul>
+    <li>BSc(Hons) in Computer Science and Technology (Undergraduate) - Sabaragamuwa University of Sri Lanka</li>
+    <li>HND in Computing Software Engineering - Londontech City Campus</li>
+    <li>Diploma in Information Technology - Esoft Metro Campus</li>
+    <li>Diploma in Human Resource Management - IMD Campus</li>
+  </ul>
+</section>
+
+<section id="skills" class="fade-in">
+  <h2>Technical Skills</h2>
+  <div class="skills">
+    <span class="skill-chip">Python</span>
+    <span class="skill-chip">HTML & CSS</span>
+    <span class="skill-chip">C</span>
+    <span class="skill-chip">MySQL</span>
+    <span class="skill-chip">Machine Learning</span>
+    <span class="skill-chip">Flutter & Dart</span>
+    <span class="skill-chip">C#</span>
+    <span class="skill-chip">Firestore</span>
+    <span class="skill-chip">Java</span>
+  </div>
+</section>
+
+<section id="projects" class="fade-in">
+  <h2>Projects</h2>
+
+  <div class="project">
+  
+    <h3>PharmaGuide (Mobile App)</h3>
+    <p><em>Flutter | Dart | Firebase | Google ML Kit | Barcode Scan | Android</em></p>
+    <p>Designed and developed a mobile application to simplify access to drug information, allowing users to retrieve details by scanning labels using OCR, barcode, or manual search. Features include medicine reminders and pharmacist guidelines. Integrated Firebase backend and Google ML Kit for accurate recognition.</p>
+  </div>
+
+  <div class="project">
+    
+    <h3>Student Management System</h3>
+    <p><em>Python | Tkinter | MySQL (XAMPP)</em></p>
+    <p>Desktop app to manage student records, enrollment, and grades. Supports CRUD operations, search, and a clean UI connected to MySQL database.</p>
+  </div>
+
+  <div class="project">
+    
+    <h3>Food Ordering System</h3>
+    <p><em>Python | Tkinter | SQLite3</em></p>
+    <p>Simulates restaurant POS system with menu selection, order summaries, and tax calculations.</p>
+  </div>
+
+  <div class="project">
+    
+    <h3>Mirissa Tourism Webpage</h3>
+    <p><em>HTML | CSS</em></p>
+    <p>Static tourism website showcasing attractions and accommodations with responsive design.</p>
+  </div>
+
+  <div class="project">
+   
+    <h3>Gym Management System</h3>
+    <p><em>C# | Windows Forms | SQL Server</em></p>
+    <p>Desktop app to manage members, subscriptions, trainers, and attendance with automated fee calculations.</p>
+  </div>
+</section>
+
+<section id="volunteering" class="fade-in">
+  <h2>Volunteering Experience</h2>
+  <ul>
+    <li>Innovators’ Club SUSL - Committee Member</li>
+    <li>IEEE SUSL - Member</li>
+    <li>Rotaract Club SUSL - Member</li>
+  </ul>
+</section>
+
+<section id="soft-skills" class="fade-in">
+  <h2>Soft Skills</h2>
+  <div class="soft-skills">
+    <span class="skill-chip">Teamwork</span>
+    <span class="skill-chip">Leadership</span>
+    <span class="skill-chip">Collaboration</span>
+    <span class="skill-chip">Problem Solving</span>
+    <span class="skill-chip">Creativity</span>
+    <span class="skill-chip">Time Management</span>
+    <span class="skill-chip">Self Motivation</span>
+    <span class="skill-chip">Decision Making</span>
+  </div>
+</section>
+
+<section id="contact" class="fade-in">
+  <h2>Contact</h2>
+  <p>Email: <a href="mailto:athapaththusewmini@gmail.com">athapaththusewmini@gmail.com</a></p>
+  <p>Phone: <a href="tel:+94702181922">+94 70 218 1922</a></p>
+  <p>LinkedIn: <a href="https://linkedin.com/in/sewmini-athapaththu-a463851aa" target="_blank" rel="noopener noreferrer">linkedin.com/in/sewmini-athapaththu</a></p>
+  <p>GitHub: <a href="https://github.com/SewminiA" target="_blank" rel="noopener noreferrer">github.com/SewminiA</a></p>
+</section>
+
+<button id="backToTop" aria-label="Back to top" title="Back to top">⬆️</button>
+
+<footer>
+  <p>&copy; 2025 Sewmini Athapaththu</p>
+</footer>
+
+<script>
+  // Back to top button functionality
+  const backToTopBtn = document.getElementById('backToTop');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+      backToTopBtn.style.display = 'flex';
+    } else {
+      backToTopBtn.style.display = 'none';
+    }
+  });
+
+  backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // Fade-in animation for sections on scroll
+  const faders = document.querySelectorAll('.fade-in');
+
+  const appearOptions = {
+    threshold: 0.1,
+    rootMargin: "0px 0px -50px 0px"
+  };
+
+  const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.style.opacity = 1;
+      entry.target.style.transform = 'translateY(0)';
+      appearOnScroll.unobserve(entry.target);
+    });
+  }, appearOptions);
+
+  faders.forEach(fader => {
+    fader.style.opacity = 0;
+    fader.style.transform = 'translateY(40px)';
+    fader.style.transition = 'opacity 1s ease-out, transform 1s ease-out';
+    appearOnScroll.observe(fader);
+  });
+</script>
+
+</body>
+</html>
